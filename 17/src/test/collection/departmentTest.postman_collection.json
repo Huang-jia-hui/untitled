@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "2fbe5f8a-2438-4301-b1e2-d4042fdbebe6",
+		"name": "departmentTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET localhost:8080/department.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ed694f9e-badf-4a56-8f43-7d7fc8990a89",
+						"exec": [
+							"pm.test(\"Body matches string 信管\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"信管\");",
+							"});",
+							"pm.test(\"Body matches string 土管\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"土管\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/department.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"department.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET localhost:8080/department.ctl?id=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9c5e7b3-c9b3-44ae-bf56-593238a126f2",
+						"exec": [
+							"pm.test(\"Body matches string 信管\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"信管\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/department.ctl?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"department.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST localhost:8080/department.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a105b9a-9eb5-493b-a539-68d55645d457",
+						"exec": [
+							"pm.test(\"Body matches string 增加成功\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"增加成功\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"信管\",\"no\":\"01\",\"remarks\":\"best\",\"school\":{\"description\":\"管理学院\",\"id\":4,\"no\":\"02\",\"remarks\":\"最好的学院\"}}"
+				},
+				"url": {
+					"raw": "localhost:8080/department.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"department.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE  localhost:8080/department.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4c6132a4-9671-4a37-b9be-324036cbf53d",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"删除成功?\"] = jsonData.message === \"删除成功\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/department.ctl?id=4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"department.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT  localhost:8080/department.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "19998901-a9a4-41c1-be5b-4a1d1fefa7ca",
+						"exec": [
+							"pm.test(\"Body matches string 修改成功\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"修改成功\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"description\": \"土管\",\r\n        \"id\":10,\r\n        \"no\":\"01\",\r\n        \"remarks\": \"best\",\r\n        \"school\": {\r\n            \"description\": \"管理学院\",\r\n            \"id\": 4,\r\n            \"no\": \"02\",\r\n            \"remarks\": \"最好的学院\"\r\n        }\r\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/department.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"department.ctl"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b25771f9-2a33-440f-996c-d9ce25bb85e3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8b6521d0-2039-4db8-b46c-c47838ca3f8f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

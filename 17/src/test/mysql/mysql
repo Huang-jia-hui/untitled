@@ -1,0 +1,34 @@
+d:
+cd my5.5\bin
+net start mysql5.5
+.\mysql -uroot -p
+create database bysj default character set utf8 collate utf8_general_ci;
+use bysj
+create table teacher(
+    name varchar(255) not null,
+    id bigint not null auto_increment,
+    title_id bigint not null ,
+    foreign key(title_id)references proftitle(id),
+    degree_id bigint not null ,
+    foreign key(degree_id)references degree(id),
+    dept_id bigint not null ,
+    foreign key(dept_id)references department(id),
+    primary key (id)
+    );
+
+delimiter //
+create procedure sp_addDepartment(
+IN description varchar(255),
+no VARCHAR(255),
+remarks varchar(255),
+school_id int,
+OUT id INT
+)
+BEGIN
+INSERT INTO department(description,no,remarks,school_id) values(description,no,remarks,school_id);
+select LAST_INSERT_ID() INTO id;
+END//
+delimiter ;
+
+show procedure status like'sp%'\G49.234.231.74
+M3IiYF7gu7C3U
