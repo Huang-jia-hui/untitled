@@ -18,7 +18,7 @@ import java.util.Collection;
 /**
  * 将所有方法组织在一个Controller(Servlet)中
  */
-@WebServlet("/proftitle.ctl")
+@WebServlet("/profTitle.ctl")
 public class ProfTitleController extends HttpServlet {
 
     /**

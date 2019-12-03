@@ -15,7 +15,15 @@ create table teacher(
     foreign key(dept_id)references department(id),
     primary key (id)
     );
-
+create table user(
+    username varchar(255) not null,
+    id bigint not null auto_increment,
+    password varchar(255) not null,
+    loginTime date not null,
+    teacher_id bigint not null ,
+    foreign key (teacher_id) references teacher(id),
+    primary key (id)
+    );
 delimiter //
 create procedure sp_addDepartment(
 IN description varchar(255),

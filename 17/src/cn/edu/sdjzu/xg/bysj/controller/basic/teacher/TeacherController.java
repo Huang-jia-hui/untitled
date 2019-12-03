@@ -61,10 +61,7 @@ public class TeacherController extends HttpServlet {
             TeacherService.getInstance().add(teacherToAdd);
             //加入响应信息
             message.put("message", "增加成功");
-        }catch (SQLException e){
-            message.put("message", "数据库操作异常");
-            e.printStackTrace();
-        }catch(Exception e){
+        } catch(Exception e){
             message.put("message", "网络异常");
             e.printStackTrace();
         }

@@ -26,12 +26,12 @@ public final class TeacherService {
 	public boolean update(Teacher teacher)throws SQLException{
 		return teacherDao.update(teacher);
 	}
-	public boolean add(Teacher teacher)throws SQLException,Exception{
+	public boolean add(Teacher teacher){
 		return teacherDao.add(teacher);
 	}
 
 	public boolean delete(Integer id)throws SQLException{
 		Teacher teacher = this.find(id);
-		return teacherDao.delete(id);
+		return teacherDao.delete(teacher);
 	}
 }

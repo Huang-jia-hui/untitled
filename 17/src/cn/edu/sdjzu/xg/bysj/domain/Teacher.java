@@ -9,6 +9,7 @@ public final class Teacher implements Comparable<Teacher>,Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String name;
+	private String no;
 	private ProfTitle profTitle;
 	private Degree degree;
 	private Department department;
@@ -19,20 +20,23 @@ public final class Teacher implements Comparable<Teacher>,Serializable {
 
 	public Teacher(Integer id,
 				   String name,
+				   String no,
 				   ProfTitle title,
 				   Degree degree,
                    Department department) {
-		this(name, title, degree, department);
+		this(name, no,title, degree, department);
 		this.id = id;
 
 	}
 	public Teacher(
 				   String name,
+				   String no,
 				   ProfTitle title,
 				   Degree degree,
 				   Department department) {
 		super();
 		this.name = name;
+		this.no = no;
 		this.profTitle = title;
 		this.degree = degree;
 		this.department = department;
@@ -49,6 +53,7 @@ public final class Teacher implements Comparable<Teacher>,Serializable {
 	public String getName() {
 		return name;
 	}
+	public String getNo(){return no;}
 
 	public void setName(String name) {
 		this.name = name;

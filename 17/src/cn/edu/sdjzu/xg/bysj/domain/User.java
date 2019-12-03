@@ -1,7 +1,7 @@
 package cn.edu.sdjzu.xg.bysj.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 public class User  implements Comparable<User>,Serializable{
 	private Integer id;
@@ -9,6 +9,7 @@ public class User  implements Comparable<User>,Serializable{
 	private String password;
 	private Date loginTime;
 	private Teacher teacher;
+	private String no;
 	
 	public User(){}
 	
@@ -19,6 +20,14 @@ public class User  implements Comparable<User>,Serializable{
 		this.username = username;
 		this.password = password;
 		this.loginTime = loginTime;
+		this.teacher = teacher;
+	}
+
+	public User(int id, String username, String password, Teacher teacher) {
+		super();
+		this.id=id;
+		this.username=username;
+		this.password = password;
 		this.teacher = teacher;
 	}
 

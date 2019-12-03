@@ -21,7 +21,7 @@ public class Filter00 implements Filter {
         //获得请求的url
         String path = request.getRequestURI();
         //如果请求路径不含"/login"
-        if (!path.contains("/login")){
+        if (!path.contains("/ok")){
             //打印
             System.out.println("response succeed");
             //设置响应字符编码格式
